@@ -1,7 +1,7 @@
 
 document.getElementById("get-weather").addEventListener("click", function ()
- { let cityCode = document.getElementById("city-select").value; if (!cityCode)
-         { alert("都市を選択してください。"); return; } 
+ { let cityCode = document.getElementById("city-select").value; 
+    if (!cityCode){ alert("都市を選択してください。"); return; } 
          let url = `https://www.jma.go.jp/bosai/forecast/data/forecast/${cityCode}.json`; 
 
          fetch(url)
@@ -12,7 +12,8 @@ document.getElementById("get-weather").addEventListener("click", function ()
              console.log(weather);
              let area = weather[0].timeSeries[0].areas[0];
              console.log(area); 
-             let tempsArea = weather[1].tempAverage.areas[0]; console.log(tempsArea); 
+             let tempsArea = weather[1].tempAverage.areas[0]; 
+             console.log(tempsArea); 
 
                 // 発表者と報告日時の情報を画面に書き出す
         document.getElementById("publishingOffice").lastElementChild.textContent = weather[0].publishingOffice;
